@@ -3,7 +3,6 @@ package dev.java10x.CadastroDeNinjas.Ninjas;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.springframework.stereotype.Service;
 
@@ -33,7 +32,7 @@ public class NinjaService {
 	
 	public NinjaDTO criarNinja(NinjaDTO ninjaDTO) {
 		NinjaModel ninja = ninjaMapper.map(ninjaDTO);
-		ninja = ninjaRepository.save(ninja);
+		ninja = ninjaRepository.saveAndFlush(ninja);		
 		return ninjaMapper.map(ninja);
 	}
 	
